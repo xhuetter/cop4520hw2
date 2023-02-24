@@ -54,6 +54,20 @@ public class Labyrinth {
         // System.out.println(nextGuest);
         guestsInvited.compareAndSet(nextGuest, 0, 1);
       }
+
+      for (Thread t : guests)
+      {
+        try
+        {
+          t.join();
+        }
+        catch (Exception e)
+        {
+            // Throwing an exception
+            System.out.println(e);
+        }
+      }
+
       return;
   }
 
@@ -107,7 +121,7 @@ public class Labyrinth {
 
       public void eatCupcake()
       {
-        int temp = cupcakesEaten.incrementAndGet();
+        // int temp = cupcakesEaten.incrementAndGet();
         // System.out.println(temp + " " + guestNum);
         hasEatenCupcake = true;
         cupcake.getAndSet(false);
