@@ -5,7 +5,7 @@ public class Minotaur {
 
     public static void main(String[] args) {
 
-      Labyrinth maze = new Labyrinth(100);
+      Labyrinth maze = new Labyrinth(Integer.parseInt(args[0]));
 
       long start = System.currentTimeMillis();
 
@@ -13,7 +13,7 @@ public class Minotaur {
 
       long end = System.currentTimeMillis();
       float timeElapsed = (end - start) / 1000F;
-      System.out.println(timeElapsed);
+      System.out.println("All guests have gone through the Labyrinth in " + timeElapsed + " seconds");
       return;
 
     }
